@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Candidate</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        /* General page styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding-top: 50px; /* Adjust to control the top space */
+            position: relative; /* Needed for absolute positioning of the back button */
+        }
+
+        /* Back button styling */
+        .back-button {
+            position: absolute;
+            top: 20px; /* Distance from the top */
+            right: 20px; /* Distance from the right */
+            padding: 10px 20px;
+            background-color: #ccc;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .back-button:hover {
+            background-color: #bbb;
+        }
+
+        /* Form styling */
+        form {
+            position: relative;
+            background-color: #fff;
+            padding: 50px 30px 20px; /* Extra padding on top for h1 */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* h1 styling */
+        h1 {
+            position: absolute;
+            top: 10px; /* Adjusted so it stays within the form */
+            left: 20px; /* Keeps it aligned with form padding */
+            font-size: 1.5em;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Label and input styling */
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            border-color: #0077ff;
+            outline: none;
+        }
+
+        /* Error message styling */
+        .error {
+            color: #d9534f;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* Button styling */
+        button[type="submit"] {
+            background-color: #0077ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #005bb5;
+        }
+
+        /* Section headers */
+        h2 {
+            font-size: 1.2em;
+            color: #0077ff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #f4f4f9;
+            padding-bottom: 5px;
+        }
+
+    </style>
+    <style>
+        /* General page styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding-top: 50px; /* Adjust to control the top space */
+            position: relative; /* Needed for absolute positioning of the back button */
+        }
+
+        /* Back button styling */
+        .back-button {
+            position: absolute;
+            top: 20px; /* Distance from the top */
+            right: 20px; /* Distance from the right */
+            padding: 10px 20px;
+            background-color: #ccc;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .back-button:hover {
+            background-color: #bbb;
+        }
+
+        /* Form styling */
+        form {
+            position: relative;
+            background-color: #fff;
+            padding: 50px 30px 20px; /* Extra padding on top for h1 */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+
+
+        /* Label and input styling */
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            border-color: #0077ff;
+            outline: none;
+        }
+
+        /* Error message styling */
+        .error {
+            color: #d9534f;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* Button styling */
+        button[type="submit"] {
+            background-color: #0077ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #005bb5;
+        }
+
+        /* Section headers */
+        h2 {
+            font-size: 1.2em;
+            color: #0077ff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #f4f4f9;
+            padding-bottom: 5px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 20px auto; /* Căn giữa dọc */
+            text-align: center; /* Căn giữa nội dung */
+            padding: 10px 20px;
+            color: white;
+            background-color: #007BFF; /* Màu xanh Bootstrap */
+            text-decoration: none; /* Xóa gạch chân */
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3; /* Tông màu xanh đậm hơn khi hover */
+            transform: scale(1.05); /* Phóng to nhẹ khi hover */
+        }
+
+        .back-button:active {
+            background-color: #003f7f; /* Màu xanh đậm hơn khi nhấn */
+            transform: scale(0.95); /* Thu nhỏ nhẹ khi nhấn */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Add Candidate</h1>
+<a href="/candidates/candidates" class="back-button">Back to List</a>
+<form th:action="@{/candidates/add}" th:object="${candidate}" method="post">
+    <div>
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" th:field="*{fullName}" required>
+        <div th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" class="error"></div>
+    </div>
+
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}" required>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></div>
+    </div>
+
+    <div>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" th:field="*{phone}" required>
+        <div th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="error"></div>
+    </div>
+
+    <div>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" th:field="*{dob}" required>
+        <div th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}" class="error"></div>
+    </div>
+
+    <h2>Address Information</h2>
+    <div>
+        <label for="street">Street:</label>
+        <input type="text" id="street" th:field="*{address.street}" required>
+        <div th:if="${#fields.hasErrors('address.street')}" th:errors="*{address.street}" class="error"></div>
+    </div>
+
+    <div>
+        <label for="number">Number:</label>
+        <input type="text" id="number" th:field="*{address.number}" required>
+        <div th:if="${#fields.hasErrors('address.number')}" th:errors="*{address.number}" class="error"></div>
+    </div>
+
+    <div>
+        <label for="city">City:</label>
+        <input type="text" id="city" th:field="*{address.city}" required>
+        <div th:if="${#fields.hasErrors('address.city')}" th:errors="*{address.city}" class="error"></div>
+    </div>
+
+    <div>
+        <label for="country">Country:</label>
+        <select id="country" th:field="*{address.country}" required>
+            <option th:each="country : ${countries}" th:value="${country}" th:text="${country.name}"></option>
+        </select>
+        <div th:if="${#fields.hasErrors('address.country')}" th:errors="*{address.country}" class="error"></div>
+    </div>
+
+    <div>
+        <label for="zipcode">Zipcode:</label>
+        <input type="text" id="zipcode" th:field="*{address.zipcode}" required>
+        <div th:if="${#fields.hasErrors('address.zipcode')}" th:errors="*{address.zipcode}" class="error"></div>
+    </div>
+
+    <div>
+        <button type="submit">Add Candidate</button>
+    </div>
+</form>
+</body>
+</html>

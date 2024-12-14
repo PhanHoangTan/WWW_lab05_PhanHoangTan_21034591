@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Company</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #4CAF50;
+        }
+
+        form {
+            width: 50%;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .mb-3.row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .col-sm-3 {
+            flex: 1;
+        }
+
+        .form-control, .form-select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-select {
+            background-color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                width: 90%;
+            }
+
+            .mb-3.row {
+                flex-wrap: wrap;
+            }
+
+            .col-sm-3 {
+                width: 100%;
+                flex: none;
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Đồng bộ màu nền */
+            color: #222; /* Màu chữ tối hơn */
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #007BFF; /* Sử dụng màu xanh đồng bộ với giao diện Bootstrap */
+        }
+
+        form {
+            width: 50%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 1px solid #ccc; /* Giữ màu xám nhẹ */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555; /* Đồng nhất với các thẻ chữ khác */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+            background-color: #fdfdfd; /* Màu nền nhạt hơn */
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF; /* Màu xanh Bootstrap */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Tông màu xanh đậm hơn khi hover */
+        }
+
+        .form-select {
+            background-color: white;
+            cursor: pointer;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px 0; /* Giữ khoảng cách trên và dưới */
+            padding: 10px 20px;
+            color: white;
+            background-color: #007BFF; /* Màu xanh Bootstrap */
+            text-decoration: none; /* Xóa gạch chân */
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+
+        .back-button:hover {
+            background-color: #0056b3; /* Tông màu xanh đậm hơn khi hover */
+            transform: scale(1.05); /* Phóng to nhẹ khi hover */
+        }
+
+        .back-button:active {
+            background-color: #003f7f; /* Màu xanh đậm hơn khi nhấn */
+            transform: scale(0.95); /* Thu nhỏ nhẹ khi nhấn */
+        }
+        .back-button {
+            position: absolute; /* Đặt nút ở vị trí tuyệt đối */
+            top: 20px; /* Cách cạnh trên 20px */
+            right: 20px; /* Cách cạnh phải 20px */
+            padding: 10px 20px;
+            color: white;
+            background-color: #007BFF; /* Màu xanh Bootstrap */
+            text-decoration: none; /* Xóa gạch chân */
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3; /* Tông màu xanh đậm hơn khi hover */
+            transform: scale(1.05); /* Phóng to nhẹ khi hover */
+        }
+
+        .back-button:active {
+            background-color: #003f7f; /* Màu xanh đậm hơn khi nhấn */
+            transform: scale(0.95); /* Thu nhỏ nhẹ khi nhấn */
+        }
+    </style>
+</head>
+<body>
+
+<h2>Update Company Information</h2>
+<a href="/companies/companies" class="back-button">Back to List</a>
+<form th:action="@{/companies/update}" th:object="${company}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <div>
+        <label for="compName">Name:</label>
+        <input type="text" id="compName" th:field="*{compName}" required>
+    </div>
+    <div>
+        <label for="about">About:</label>
+        <textarea id="about" th:field="*{about}" required></textarea>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}" required>
+    </div>
+    <div>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" th:field="*{phone}" required>
+    </div>
+    <div>
+        <label for="webUrl">Website URL:</label>
+        <input type="url" id="webUrl" th:field="*{webUrl}">
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Address</label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Street" th:field="*{address.street}" required>
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="City" th:field="*{address.city}" required>
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Zip code" th:field="*{address.zipcode}" required>
+        </div>
+        <div class="col-sm-3">
+            <select class="form-select" th:field="*{address.country}" required>
+                <option value="" disabled selected>Select country</option>
+                <option th:each="country : ${countries}" th:value="${country}" th:text="${country.name}"></option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <button type="submit">Update</button>
+    </div>
+</form>
+</body>
+</html>

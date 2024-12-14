@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jobs with Pagination</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        .table th, .table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .btn-warning {
+            color: #fff;
+            background-color: #f0ad4e;
+            border-color: #eea236;
+        }
+
+        .btn-warning:hover {
+            background-color: #ec971f;
+            border-color: #d58512;
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 12px;
+            line-height: 1.5;
+            border-radius: 3px;
+        }
+
+        .search-form {
+            margin-bottom: 20px;
+        }
+
+        .search-form .input-group {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-form .form-control {
+            height: 45px;
+            font-size: 16px;
+        }
+
+        .search-form .btn {
+            height: 45px;
+            font-size: 16px;
+        }
+
+        div.inline {
+            color: black;
+            float: left;
+            padding: 5px 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        div.inline a.active {
+            background-color: #FBD603;
+            border: 1px solid darkred;
+        }
+        .inline a {
+            display: inline-block;
+            margin: 0 5px; /* Khoảng cách giữa các liên kết */
+            padding: 10px 15px; /* Tạo khoảng cách bên trong liên kết */
+            text-decoration: none; /* Loại bỏ gạch chân */
+            color: #007bff; /* Màu chữ cho các liên kết */
+            border: 1px solid #ddd; /* Đường viền nhẹ quanh liên kết */
+            border-radius: 5px; /* Bo góc nhẹ */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Hiệu ứng khi hover */
+        }
+
+        .inline a:hover {
+            background-color: #f0f0f0; /* Thay đổi màu nền khi hover */
+            color: #0056b3; /* Thay đổi màu chữ khi hover */
+        }
+
+        .inline a.active {
+            background-color: #007bff; /* Màu nền cho trang đang được chọn */
+            color: #fff; /* Màu chữ trắng cho trang đang được chọn */
+            border-color: #007bff; /* Đường viền đồng màu với nền */
+            font-weight: bold; /* Chữ đậm */
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .page-link {
+            margin: 0 5px;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #007bff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .page-link:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .page-link.active {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            pointer-events: none;
+        }
+
+        .ellipsis {
+            margin: 0 5px;
+            color: #aaa;
+            font-size: 16px;
+        }
+
+
+
+    </style>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Management System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/candidates/candidates">Candidates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/companies/companies">Companies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/jobs/jobs">Jobs</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h1 class="text-center">List of Jobs</h1>
+
+<!-- Search form -->
+<form action="/jobs/search" method="get" class="search-form mb-3">
+    <div class="input-group">
+        <input type="text" name="keyword" class="form-control" placeholder="Search by job name, description, or company">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </div>
+</form>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Job Name</th>
+        <th>Description</th>
+        <th>Company</th>
+        <th>Job Skill</th>
+        <th>View Company</th>
+        <th>View Skill Request</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="job, iStat : ${jobPage.content}"
+        th:style="${iStat.odd}? 'font-weight: bold;'"
+        th:alt-title="${iStat.even}? 'even' : 'odd'">
+        <td th:text="${job.id}"
+            th:title="'Job ID: ' + ${job.id}"></td>
+        <td th:text="${job.jobName}"
+            th:title="'Job Name: ' + ${job.jobName}"></td>
+        <td th:text="${job.jobDesc}"
+            th:title="'Description: ' + ${job.jobDesc}"></td>
+        <td th:text="${job.company.compName}"
+            th:title="'Company: ' + ${job.company.compName}"></td>
+        <td>
+            <ul>
+                <li th:each="jobSkill : ${job.jobSkills}">
+                    <span th:text="${jobSkill.skill.skillName}"></span>:
+                    <span th:text="${jobSkill.skillLevel}"></span> -
+                    <span th:text="${jobSkill.skill.type}"></span>
+                </li>
+            </ul>
+        </td>
+        <td>
+            <a th:href="@{/jobs/view-company/{companyId}(companyId=${job.company.id})}">View</a>
+        </td>
+        <td>
+            <a th:href="@{/jobs/view-skill-request/{id}(id=${job.id})}">Detail</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="pagination">
+    <!-- Link tới trang đầu tiên -->
+    <a th:href="@{jobs(size=${jobPage.size}, page=1)}"
+       th:classappend="${jobPage.number == 0} ? 'active'"
+       class="page-link">1</a>
+
+    <!-- Hiển thị dấu "..." nếu có nhiều trang phía trước -->
+    <span th:if="${jobPage.number > 3}" class="ellipsis">...</span>
+
+    <!-- Hiển thị các trang lân cận -->
+    <a th:each="pageNumber : ${pageNumbers}"
+       th:if="${pageNumber >= 2 and pageNumber < jobPage.totalPages and
+              pageNumber >= jobPage.number + 1 and pageNumber <= jobPage.number + 3}"
+       th:href="@{jobs(size=${jobPage.size}, page=${pageNumber})}"
+       th:classappend="${pageNumber - 1 == jobPage.number} ? 'active'"
+       th:text="${pageNumber}"
+       class="page-link"></a>
+
+    <!-- Hiển thị dấu "..." nếu có nhiều trang phía sau -->
+    <span th:if="${jobPage.number < jobPage.totalPages - 4}" class="ellipsis">...</span>
+
+    <!-- Link tới trang cuối cùng -->
+    <a th:href="@{jobs(size=${jobPage.size}, page=${jobPage.totalPages})}"
+       th:classappend="${jobPage.number + 1 == jobPage.totalPages} ? 'active'"
+       th:text="${jobPage.totalPages}"
+       class="page-link"></a>
+</div>
+
+
+
+
+</body>
+</html>

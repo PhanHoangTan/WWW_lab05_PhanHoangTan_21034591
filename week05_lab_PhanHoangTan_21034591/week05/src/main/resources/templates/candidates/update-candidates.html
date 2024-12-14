@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Candidate</title>
+    <style>
+        /* Basic styling for the form */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
+
+        .success {
+            color: green;
+            margin-bottom: 15px;
+        }
+
+        /* Back button styling */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            color: white;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .back-button:active {
+            background-color: #003f7f;
+            transform: scale(0.95);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #007BFF;
+        }
+
+        form {
+            width: 50%;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003f7f;
+        }
+
+        .form-select {
+            background-color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                width: 90%;
+            }
+
+            .mb-3.row {
+                flex-wrap: wrap;
+            }
+
+            .col-sm-3 {
+                width: 100%;
+                flex: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<h2>Update Candidate Information</h2>
+<a href="/candidates/candidates" class="back-button">Back to List</a>
+
+<!-- Check for errors or success messages -->
+<div th:if="${error != null}" class="error" th:text="${error}"></div>
+<div th:if="${success != null}" class="success" th:text="${success}"></div>
+
+<form th:action="@{/candidates/update}" th:object="${candidate}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <!-- Candidate Full Name -->
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" th:field="*{fullName}" required>
+    <div th:if="${#fields.hasErrors('fullName')}" class="error" th:errors="*{fullName}"></div>
+
+    <!-- Candidate Email -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" th:field="*{email}" required>
+    <div th:if="${#fields.hasErrors('email')}" class="error" th:errors="*{email}"></div>
+
+    <!-- Candidate Phone -->
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" th:field="*{phone}" required>
+    <div th:if="${#fields.hasErrors('phone')}" class="error" th:errors="*{phone}"></div>
+
+    <!-- Candidate Date of Birth -->
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" th:value="*{dob}" name="dob" required>
+    <div th:if="${#fields.hasErrors('dob')}" class="error" th:errors="*{dob}"></div>
+
+    <!-- Address Information -->
+    <h3>Address Information</h3>
+
+    <!-- Street -->
+    <label for="street">Street:</label>
+    <input type="text" id="street" th:field="*{address.street}" required>
+    <div th:if="${#fields.hasErrors('address.street')}" class="error" th:errors="*{address.street}"></div>
+
+    <!-- Number -->
+    <label for="number">Number:</label>
+    <input type="text" id="number" th:field="*{address.number}" required>
+    <div th:if="${#fields.hasErrors('address.number')}" class="error" th:errors="*{address.number}"></div>
+
+    <!-- City -->
+    <label for="city">City:</label>
+    <input type="text" id="city" th:field="*{address.city}" required>
+    <div th:if="${#fields.hasErrors('address.city')}" class="error" th:errors="*{address.city}"></div>
+
+    <!-- Country -->
+    <label for="country">Country:</label>
+    <select id="country" th:field="*{address.country}" required>
+        <option th:each="country : ${countries}" th:value="${country}" th:text="${country}"></option>
+    </select>
+    <div th:if="${#fields.hasErrors('address.country')}" class="error" th:errors="*{address.country}"></div>
+
+    <!-- Zipcode -->
+    <label for="zipcode">Zipcode:</label>
+    <input type="text" id="zipcode" th:field="*{address.zipcode}" required>
+    <div th:if="${#fields.hasErrors('address.zipcode')}" class="error" th:errors="*{address.zipcode}"></div>
+
+    <!-- Submit Button -->
+    <button type="submit">Update Candidate</button>
+</form>
+
+</body>
+</html>

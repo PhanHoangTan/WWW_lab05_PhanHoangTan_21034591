@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidate Skills</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Management System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/candidates/candidates">Candidates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/companies/companies">Companies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/jobs/jobs">Jobs</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Candidate Information</h2>
+            <p><strong>ID:</strong> <span th:text="${candidate.id}"></span></p>
+            <p><strong>Name:</strong> <span th:text="${candidate.fullName}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${candidate.email}"></span></p>
+            <p><strong>Phone:</strong> <span th:text="${candidate.phone}"></span></p>
+        </div>
+    </div>
+    <h1 class="text-center">Skills of Candidate</h1>
+    <div th:if="${candidateSkills.isEmpty()}">
+        <p class="text-center">No skills found for this candidate.</p>
+    </div>
+    <div th:unless="${candidateSkills.isEmpty()}">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Skill Name</th>
+                <th>Skill Description</th>
+                <th>Type</th>
+                <th>Level Skill</th>
+                <th>More Information</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="candidateSkill : ${candidateSkills}">
+                <td th:text="${candidateSkill.skill.id}"></td>
+                <td th:text="${candidateSkill.skill.skillName}"></td>
+                <td th:text="${candidateSkill.skill.skillDescription}"></td>
+                <td th:text="${candidateSkill.skill.type != null ? candidateSkill.skill.type : 'No Type'}"></td>
+                <td th:text="${candidateSkill.skillLevel}"></td>
+                <td th:text="${candidateSkill.moreInfos}"> </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="/candidates/candidates" class="btn btn-primary">Back to Candidates</a>
+</div>
+</body>
+</html>
