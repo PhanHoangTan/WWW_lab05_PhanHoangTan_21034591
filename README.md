@@ -73,11 +73,11 @@ Sơ đồ
 
 Class Diagram
 
-![image](https://github.com/user-attachments/assets/60b3586b-56e9-47b3-8eab-d44e49d0dc8c)
+![image](https://github.com/user-attachments/assets/b169b3e7-5c0c-4eba-9c5e-efec3e161cb9)
 
 Database Diagram
 
-![image](https://github.com/user-attachments/assets/b169b3e7-5c0c-4eba-9c5e-efec3e161cb9)
+![image](https://github.com/user-attachments/assets/60b3586b-56e9-47b3-8eab-d44e49d0dc8c)
 
 **Giao diện website**
 
