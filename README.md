@@ -21,7 +21,7 @@ Giáo viên hướng dẫn: Võ Văn Hải
 
 Word: PhanHoangTan_21034591_BaoCaoDeTai_WWW.docx
 
-Powerpoint:
+Powerpoint:PhanHoangTan_21034591_BaoCaoDeTai_WWW.pptx
 
 ---
 
