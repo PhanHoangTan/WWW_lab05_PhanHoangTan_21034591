@@ -1,8 +1,6 @@
-# Tên Dự Án
-ỨNG DỤNG QUẢN LÍ CANDIDATES, COMPANIES, AND JOBS
+# ỨNG DỤNG QUẢN LÍ CANDIDATES, COMPANIES, AND JOBS
 
 **Giới thiệu**
-
 
 Hệ thống Quản lý của chúng tôi giúp bạn dễ dàng quản lý ứng viên, công ty và các công việc một cách hiệu quả. Với giao diện đơn giản và dễ sử dụng, hệ thống hỗ trợ bạn quản lý tất cả các thông tin cần thiết trong công việc tuyển dụng và quản lý công ty.
 
