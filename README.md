@@ -15,11 +15,15 @@ Lớp: DHKTPM17A
 
 Giáo viên hướng dẫn: Võ Văn Hải
 
+---
+
 **Tài liệu**
 
 Word: PhanHoangTan_21034591_BaoCaoDeTai_WWW.docx
 
 Powerpoint:
+
+---
 
 **Công nghệ sử dụng**
 
@@ -69,8 +73,9 @@ Các tính năng chính:
 
 Hệ thống của chúng tôi giúp bạn tiết kiệm thời gian, tăng năng suất làm việc và dễ dàng quản lý các công việc tuyển dụng một cách hiệu quả và chuyên nghiệp.
 
+---
 
-Sơ đồ
+**Sơ đồ**
 
 Class Diagram
 
@@ -80,11 +85,15 @@ Database Diagram
 
 ![image](https://github.com/user-attachments/assets/60b3586b-56e9-47b3-8eab-d44e49d0dc8c)
 
+---
+
 **Giao diện website**
 
 Trang chủ
 
 ![image](https://github.com/user-attachments/assets/8cbb2f84-f868-461d-9216-f863d741b556)
+
+---
 
 **Ứng viên**
 
@@ -107,6 +116,8 @@ Cập nhật thông tin ứng viên
 Thêm ứng viên
 
 ![image](https://github.com/user-attachments/assets/620efcfa-e19c-4192-be06-81fd7f1e9a47)
+
+---
 
 **Công ty**
 
@@ -134,6 +145,8 @@ thêm công ty
 
 ![image](https://github.com/user-attachments/assets/b596a738-0824-4ce0-bbae-376a098c7ac5)
 
+---
+
 **Công việc**
 
 danh sách công việc
@@ -152,6 +165,7 @@ Kĩ năng yêu cầu cho công việc
 
 ![image](https://github.com/user-attachments/assets/c9122dec-9c7c-4efa-a9a6-a09c261e3808)
 
+---
 
 **Kết luận và hướng phát triển**
 
